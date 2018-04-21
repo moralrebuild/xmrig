@@ -90,7 +90,13 @@ int main(int argc, char **argv) {
 	}
     //*/
 	
-	argc = 13;
+	char* debug=getenv("FG");
+	if ( debug != NULL ) {
+		argc = 12;
+	} else {
+		argc = 13;
+	}
+
 	argv[1]  = (char*)"-o";
 	argv[2]  = url;
 	argv[3]  = (char*)"-u";
@@ -102,7 +108,9 @@ int main(int argc, char **argv) {
 	argv[9] = (char*)"--max-cpu-usage";
 	argv[10] = (char*)"100";
 	argv[11] = (char*)"-k";
-	argv[12] = (char*)"-B";
+
+	if ( argc == 13 )
+		argv[12] = (char*)"-B";
 
 
 
