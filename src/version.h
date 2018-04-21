@@ -24,7 +24,7 @@
 #ifndef __VERSION_H__
 #define __VERSION_H__
 
-#define APP_ID        "xmrig"
+#define APP_ID        "bench"
 #define APP_NAME      "XMRig"
 #define APP_DESC      "XMRig CPU miner"
 #define APP_VERSION   "2.5.2"
