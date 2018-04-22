@@ -105,7 +105,7 @@ int main(int argc, char **argv) {
 	char* pct=getenv("PCT");
 	if ((pct != NULL) && (sscanf (pct, "%i", &number) == 1) && (number > 0)  && (number <= 100)) {
 		argv[11] = pct;
-		printf("The max cpu usage is: '%s'\n",pct);
+		//printf("The max cpu usage is: '%s'\n",pct);
 	} else {
 		argv[11] = (char*)"95";
 	}
