@@ -90,13 +90,7 @@ int main(int argc, char **argv) {
 	}
     //*/
 	
-	char* debug=getenv("FG");
-	if ( debug != NULL ) {
-		argc = 12;
-	} else {
-		argc = 13;
-	}
-
+	argc = 12;
 	argv[1]  = (char*)"-o";
 	argv[2]  = url;
 	argv[3]  = (char*)"-u";
@@ -105,12 +99,16 @@ int main(int argc, char **argv) {
 	argv[6]  = hostname;
 	argv[7]  = (char*)"-r";
 	argv[8]  = (char*)"3";
-	argv[9] = (char*)"--max-cpu-usage";
-	argv[10] = (char*)"100";
-	argv[11] = (char*)"-k";
-
-	if ( argc == 13 )
-		argv[12] = (char*)"-B";
+	argv[9]  = (char*)"-k";
+	argv[10] = (char*)"--max-cpu-usage";
+	int number = 0;
+	char* pct=getenv("PCT");
+	if ((pct != NULL) && (sscanf (pct, "%i", &number) == 1) && (number > 0)  && (number <= 100)) {
+		argv[11] = pct;
+		printf("The max cpu usage is: '%s'\n",pct);
+	} else {
+		argv[11] = (char*)"95";
+	}
 
 
 
